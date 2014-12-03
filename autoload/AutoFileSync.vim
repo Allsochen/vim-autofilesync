@@ -8,7 +8,7 @@ endif
 let did_AutoFileSync_autoload=1
 
 call AutoFileSync#bootstrap#Bootstrap()
-if !exists("g:_uspy")
+if !exists("g:python")
    " Delete the autocommands defined in plugin/AutoFileSync.vim and
    augroup AutoFileSync
        au!
