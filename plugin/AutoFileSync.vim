@@ -10,6 +10,7 @@ endif
 
 " The Commands we define.
 command! -bar AutoFileSyncAllFiles     cal AutoFileSync#syncAllFiles()
+command! -bar AutoFileSyncSingleFile   cal AutoFileSync#syncFile()
 
 augroup AutoFileSync
     au!
