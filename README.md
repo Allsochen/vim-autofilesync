@@ -12,4 +12,4 @@ for your plugin manager of choice. Put this into your `.vimrc`.
 
 ## Basic Usage
 * Run `:AutoFileSyncAllFiles` to invoke AutoFileSync plugin to synchronize all the project files to target path.
-* Run `:AutoFileSyncSingleFile` to invoke AutoFileSync plugin to synchronize the current open file to target path.
+* Run `:AutoFileSyncSingleFile` or `:w` to invoke AutoFileSync plugin to synchronize the current open file to target path.
