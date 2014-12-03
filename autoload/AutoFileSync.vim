@@ -1,6 +1,6 @@
-" File: UltiSnips.vim
-" Author: Holger Rapp <SirVer@gmx.de>
-" Description: The Ultimate Snippets solution for Vim
+" File: AutoFileSync.vim
+" Author: erxiao.chen.gd@gmail.com
+" Description: The synchronize file solution for Vim
 
 if exists('did_AutoFileSync_autoload') || &cp || version < 700
     finish

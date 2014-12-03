@@ -1,3 +1,7 @@
+" File: AutoFileSync.vim
+" Author: erxiao.chen.gd@gmail.com
+" Description: The synchronize file solution for Vim
+
 let s:SourcedFile=expand("<sfile>")
 
 function! AutoFileSync#bootstrap#Bootstrap()

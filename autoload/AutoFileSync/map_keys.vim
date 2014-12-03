@@ -1,3 +1,7 @@
+" File: AutoFileSync.vim
+" Author: erxiao.chen.gd@gmail.com
+" Description: The synchronize file solution for Vim
+
 call AutoFileSync#bootstrap#Bootstrap()
 
 function! AutoFileSync#map_keys#MapKeys()
