@@ -16,6 +16,9 @@ import vim
 import time
 import json
 import shutil
+import threading
+
+mutex = threading.Lock()
 
 def showMsg(msg):
     """Silent to display a message.
@@ -45,13 +48,49 @@ class Configuration(object):
                 return True
         return False
 
-class AutoFileSyncManager:
+class AutoFileSyncManager(object):
+
+    def __init__(self, options):
+        self.options = options
+
+    def syncFile(self):
+        """Use thread to avoid the editor can't work.
+        """
+        AutoFileSyncSingleFileThread(self.options).start()
+
+    def syncAllFiles(self):
+        """Use thread to avoid the editor can't work.
+        """
+        AutoFileSyncFilesThread(self.options).start()
+
+class AutoFileSyncSingleFileThread(threading.Thread):
+
+    def __init__(self, options):
+        threading.Thread.__init__(self)
+        self.afs = AutoFileSync(options)
+
+    def run(self):
+        mutex.acquire()
+        self.afs.syncFile()
+        mutex.release()
+
+class AutoFileSyncFilesThread(threading.Thread):
+
+    def __init__(self, options):
+        threading.Thread.__init__(self)
+        self.afs = AutoFileSync(options)
+
+    def run(self):
+        mutex.acquire()
+        self.afs.syncAllFiles()
+        mutex.release()
+
+class AutoFileSync:
 
     def __init__(self, options):
         self.configFileName = options.get("configFileName", "autofilesync.json")
         self.findConfigFileDepth = int(options.get("findConfigFileDepth", "5"))
         self.projectSearchPaths = options.get("projectSearchPaths", [])
-        self.syncCacheDir = options.get("syncCacheDir", ".autofilesync")
 
     def getFullConfig(self, configPath):
         """Returns a full path of the configuration which contains the file name.
@@ -66,28 +105,6 @@ class AutoFileSyncManager:
             if source.find(path) >= 0:
                 return True
         return False
-
-    def isNeedToSync(self, configPath, suffixFilePath, source):
-        cachePath = os.path.join(configPath, self.syncCacheDir)
-        if not os.path.exists(cachePath):
-            os.makedirs(cachePath)
-        # build the cache path: ${PROJECT_ROOT}/${syncCacheDir}/path/.sync.filename
-        cacheSrcFile = cachePath + suffixFilePath
-        (fpath, fname) = os.path.split(cacheSrcFile)
-        cacheFile = os.path.join(fpath, ".%s.sync" % fname)
-        if not os.path.exists(cacheFile):
-            cacheDirname = os.path.dirname(cacheFile)
-            if not os.path.exists(cacheDirname):
-                os.makedirs(cacheDirname)
-            open(cacheFile, 'a').close()
-            os.utime(cacheFile, None)
-            return True
-        if os.path.getmtime(cacheFile) <= os.path.getatime(source):
-            os.utime(cacheFile, None)
-            return True
-        else:
-            return False
-
 
     def syncFile(self):
         # Gain the current open file.
@@ -182,6 +199,7 @@ class AutoFileSyncManager:
                             shutil.rmtree(dest)
                         os.makedirs(dest)
 
+                showMsg("sync all start: %s" % dest.replace("\\", "/"))
                 # Recursively copy an entire directory.
                 for root, subdirs, files in os.walk(configPath):  
                     target = root.replace(configPath, dest)
