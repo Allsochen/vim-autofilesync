@@ -1,6 +1,6 @@
-" File: AutoFileSync.vim
-" Author: erxiao.chen.gd@gmail.com
-" Description: The synchronize file solution for Vim
+" File: UltiSnips.vim
+" Author: Holger Rapp <SirVer@gmx.de>
+" Description: The Ultimate Snippets solution for Vim
 
 if exists('did_AutoFileSync_autoload') || &cp || version < 700
     finish
@@ -29,10 +29,26 @@ function! AutoFileSync#syncFile()
     "endtry
 endf
 
+function! AutoFileSync#syncUpdateFiles()
+    "try
+        exec g:python "AutoFileSync_Manager.syncUpdateFiles()"
+    "catch
+        "echomsg "AutoFileSync: sync update file error"
+    "endtry
+endf
+
 function! AutoFileSync#syncAllFiles()
     "try
         exec g:python "AutoFileSync_Manager.syncAllFiles()"
     "catch
         "echomsg "AutoFileSync: sync all file error"
     "endtry
+endf
+
+function! AutoFileSync#disable()
+    let g:autofilesync_enable = "false"
+endf
+
+function! AutoFileSync#enable()
+    let g:autofilesync_enable = "true"
 endf

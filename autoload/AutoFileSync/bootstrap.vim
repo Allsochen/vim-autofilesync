@@ -1,7 +1,3 @@
-" File: AutoFileSync.vim
-" Author: erxiao.chen.gd@gmail.com
-" Description: The synchronize file solution for Vim
-
 let s:SourcedFile=expand("<sfile>")
 
 function! AutoFileSync#bootstrap#Bootstrap()
@@ -62,6 +58,11 @@ endif
 " Enable the AutoFileSync function for project path.
 if !exists("g:autofilesync_projectSearchPaths")
     let g:autofilesync_projectSearchPaths = ["D:\\Codes"]
+endif
+
+" Enable the AutoFileSync future.
+if !exists("g:autofilesync_enable")
+    let g:autofilesync_enable = "true"
 endif
 
 call AutoFileSync#bootstrap#Bootstrap()
