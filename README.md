@@ -21,7 +21,7 @@ Add `syncfilesync.json` file into your project root path, the content of syncfil
     }
 
 ## Configuration
-* Put this into your `.vimrc` to control different action.
+Put this into your `.vimrc` to control different action.
 
     " The configuration file specified the project where you want to sync.
     " default is autofilesync.json file
