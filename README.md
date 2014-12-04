@@ -43,5 +43,6 @@ Put this into your `.vimrc` to control different action.
 * Run `:AutoFileSyncSingleFile` or `:w` to invoke AutoFileSync plugin to synchronize the current open file to target path.
 * Run `:AutoFileSyncEnable` disable AutoFileSync plugin.
 * Run `:AutoFileSyncDisable` to disable AutoFileSync plugin.
-* You can use `let g:autofilesync_syncAllFiles = "<c-y>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
+* You can use `let g:autofilesync_syncAllFiles = "<F6>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
+* You can use `let g:autofilesync_syncUpdateFiles = "<F7>"` to bind a key map for `:AutoFileSyncUpdateFiles` operation.
 
