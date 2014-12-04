@@ -17,7 +17,7 @@ Add `syncfilesync.json` file into your project root path, the content of syncfil
     {
         "dest": ""Y:\\home\\allsochen\\projects\\Circle\\CircleProxyServer",
         "excludesSuffix": [".svn"],
-        "excludesPaths": [".svn"]
+        "excludesPaths": [".svn", ".svn-base", "autofilesync.json"]
     }
 
 ## Configuration
@@ -39,6 +39,10 @@ Put this into your `.vimrc` to control different action.
 
 ## Basic Usage
 * Run `:AutoFileSyncAllFiles` to invoke AutoFileSync plugin to synchronize all the project files to target path.
+* Run `:AutoFileSyncUpdateFiles` to invoke AutoFileSync plugin to synchronize all the modified project files to target path.
 * Run `:AutoFileSyncSingleFile` or `:w` to invoke AutoFileSync plugin to synchronize the current open file to target path.
-* You can use `let g:autofilesync_syncAllFiles = "<c-y>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
+* Run `:AutoFileSyncEnable` disable AutoFileSync plugin.
+* Run `:AutoFileSyncDisable` to disable AutoFileSync plugin.
+* You can use `let g:autofilesync_syncAllFiles = "<F6>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
+* You can use `let g:autofilesync_syncUpdateFiles = "<F7>"` to bind a key map for `:AutoFileSyncUpdateFiles` operation.
 
