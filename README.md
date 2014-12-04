@@ -28,8 +28,8 @@ Put this into your `.vimrc` to control different action.
     let g:autofilesync_configFileName = autofilesync.json
     
     " Config the depth for current editting file to project config file.
-    " If not found the project config file `g:autofilesync_configFileName` in base project path
-    " it will not auto sync.
+    " If not found the project config file `g:autofilesync_configFileName`
+    " in base project path it will not auto sync.
     let g:autofilesync_findConfigFileDepth = 5
     
     " Enable the AutoFileSync feture for project.
