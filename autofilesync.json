@@ -1,5 +1,5 @@
 {
-    "dest": "Y:\\home\\allsochen\\projects\\Circle\\CircleProxyServer",
-    "excludesSuffix": [".svn"],
-    "excludesPaths": [".autofilesync"]
+    "dest": "Y:\\home\\allsochen\\projects\\MTT\\CircleProxyServer",
+    "excludesSuffix": [".svn", ".svn-base"],
+    "excludesPaths": [".svn", ".svn-base", "autofilesync.json"]
 }

@@ -8,6 +8,14 @@ function! AutoFileSync#map_keys#MapKeys()
 
     " Map the keys correctly
     if exists("g:autofilesync_syncAllFiles")
-        exec "snoremap <silent> " . g:autofilesync_syncAllFiles . "  <Esc>:call AutoFileSync#syncAllFiles()<cr>"
+        exec "nmap <silent> " . g:autofilesync_syncAllFiles . " :call AutoFileSync#syncAllFiles()<cr>"
+    else
+        exec "nmap <silent> <F6> :call AutoFileSync#syncAllFiles()<cr>"
+    endif
+
+    if exists("g:autofilesync_syncUpdateFiles")
+        exec "nmap <silent> " . g:autofilesync_syncUpdateFiles . " :call AutoFileSync#syncUpdateFiles()<cr>"
+    else
+        exec "nmap <silent> <F7> :call AutoFileSync#syncUpdateFiles()<cr>"
     endif
 endf
