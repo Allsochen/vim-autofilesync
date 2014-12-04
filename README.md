@@ -33,7 +33,8 @@ Put this into your `.vimrc` to control different action.
     let g:autofilesync_findConfigFileDepth = 5
     
     " Enable the AutoFileSync feture for project.
-    " Advice you add this to `.vimrc` to avoid additional sync operation when edit a file not in a project.
+    " Advice you add this to `.vimrc` to avoid additional sync operation
+    " when edit a file not in a project.
     let g:autofilesync_projectSearchPaths = ["D:\\Codes"]
 
 ## Basic Usage
