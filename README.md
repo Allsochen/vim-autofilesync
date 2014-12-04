@@ -39,5 +39,5 @@ Put this into your `.vimrc` to control different action.
 ## Basic Usage
 * Run `:AutoFileSyncAllFiles` to invoke AutoFileSync plugin to synchronize all the project files to target path.
 * Run `:AutoFileSyncSingleFile` or `:w` to invoke AutoFileSync plugin to synchronize the current open file to target path.
-* You can use let `g:autofilesync_syncAllFiles = "<c-y>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
+* You can use `let g:autofilesync_syncAllFiles = "<c-y>"` to bind a key map for `:AutoFileSyncAllFiles` operation.
 
