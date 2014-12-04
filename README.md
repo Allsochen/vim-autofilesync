@@ -4,12 +4,12 @@ vim-autofilesync
 A plugin which can synchronize file to other directly automatically for vim
 
 ## Installation
-* This assumes you are using [Vundle](https://github.com/gmarik/Vundle.vim). Adapt
+This assumes you are using [Vundle](https://github.com/gmarik/Vundle.vim). Adapt
 for your plugin manager of choice. Put this into your `.vimrc`.
 
     " Track the engine.
     Plugin 'Allsochen/vim-autofilesync'
-* Add `syncfilesync.json` file into your project root path, the content of syncfilesync.json is as followed:
+Add `syncfilesync.json` file into your project root path, the content of syncfilesync.json is as followed:
 
     " dest: the target path you want to sync to.
     " excludeSuffix: exclude the file ends with this suffix.
