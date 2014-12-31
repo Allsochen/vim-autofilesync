@@ -43,10 +43,10 @@ def rmtree(dirs, times=5):
 def showMsg(msg):
     """Silent to display a message.
     """
-    vim.command("echo ''")
-    vim.command("set nomore noshowmode")
-    vim.command("silent! redraw")
+    #vim.command("echo ''")
+    #vim.command("set nomore noshowmode")
     vim.command("echomsg \"%s\"" % msg)
+    vim.command("silent! redraw")
 
 class Configuration(object):
     def __init__(self):
